@@ -12,9 +12,3 @@ Arquivos principais:
 - `assets/` — imagens e recursos
 
 Como testar localmente (com Python 3):
-
-```bash
-python -m http.server 8000
-# abra http://localhost:8000 no navegador
-```
-
