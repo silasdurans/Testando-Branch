@@ -1,0 +1,24 @@
+/* styles.css - estrutura simples */
+:root{
+  --bg:#f7f7f8;
+  --accent:#2b6cb0;
+  --text:#222;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;color:var(--text);background:var(--bg)}
+.container{max-width:980px;margin:0 auto;padding:1rem}
+.site-header{background:#fff;border-bottom:1px solid #e6e6e6}
+.site-header .container{display:flex;align-items:center;gap:1rem}
+.site-title{font-size:1.25rem}
+.main-nav{margin-left:auto;display:flex;gap:0.75rem}
+.main-nav a{color:var(--text);text-decoration:none;padding:0.5rem;border-radius:4px}
+.main-nav a:hover{background:#f0f4f8}
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.25rem}
+main{padding:2rem 0}
+article{background:#fff;padding:1rem;border:1px solid #e9e9ef;border-radius:6px;margin-bottom:1rem}
+article h2{color:var(--accent);margin-bottom:0.5rem}
+.site-footer{padding:1rem 0;margin-top:2rem;color:#666}
+@media (max-width:700px){
+  .main-nav{display:none;position:absolute;right:1rem;top:64px;background:#fff;flex-direction:column;padding:0.5rem;border:1px solid #e6e6e6;border-radius:6px}
+  .nav-toggle{display:block;margin-left:auto}
+}
