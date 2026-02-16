@@ -1,24 +1,62 @@
-/* styles.css - estrutura simples */
+/* Modern styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 :root{
-  --bg:#f7f7f8;
-  --accent:#2b6cb0;
-  --text:#222;
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent-1: #7c3aed;
+  --accent-2: #06b6d4;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+  --maxw: 1100px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;color:var(--text);background:var(--bg)}
-.container{max-width:980px;margin:0 auto;padding:1rem}
-.site-header{background:#fff;border-bottom:1px solid #e6e6e6}
-.site-header .container{display:flex;align-items:center;gap:1rem}
-.site-title{font-size:1.25rem}
-.main-nav{margin-left:auto;display:flex;gap:0.75rem}
-.main-nav a{color:var(--text);text-decoration:none;padding:0.5rem;border-radius:4px}
-.main-nav a:hover{background:#f0f4f8}
-.nav-toggle{display:none;background:transparent;border:0;font-size:1.25rem}
-main{padding:2rem 0}
-article{background:#fff;padding:1rem;border:1px solid #e9e9ef;border-radius:6px;margin-bottom:1rem}
-article h2{color:var(--accent);margin-bottom:0.5rem}
-.site-footer{padding:1rem 0;margin-top:2rem;color:#666}
-@media (max-width:700px){
-  .main-nav{display:none;position:absolute;right:1rem;top:64px;background:#fff;flex-direction:column;padding:0.5rem;border:1px solid #e6e6e6;border-radius:6px}
-  .nav-toggle{display:block;margin-left:auto}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+  line-height:1.6;color:#e6eef8;background:linear-gradient(180deg,var(--bg),#071022);-webkit-font-smoothing:antialiased;padding-bottom:4rem
 }
+.container{max-width:var(--maxw);margin:0 auto;padding:1.25rem}
+
+/* Header */
+.site-header{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(255,255,255,0.03)}
+.site-header .container{display:flex;align-items:center;gap:1rem}
+.site-title{font-size:1.125rem;font-weight:600;color:#fff}
+.main-nav{margin-left:auto;display:flex;gap:0.75rem;align-items:center}
+.main-nav a{color:var(--muted);text-decoration:none;padding:0.5rem 0.75rem;border-radius:8px;transition:all 180ms ease}
+.main-nav a:hover{color:#fff;background:rgba(255,255,255,0.03);transform:translateY(-2px)}
+.cta{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:0.5rem 0.9rem;border-radius:10px;box-shadow:0 6px 18px rgba(12,8,40,0.5)}
+.nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.35rem}
+
+/* Main / Hero */
+main{padding:2.5rem 0}
+.hero{
+  background:linear-gradient(180deg, rgba(124,58,237,0.08), transparent);
+  padding:2rem;border-radius:var(--radius);margin-bottom:1.25rem;box-shadow:0 6px 30px rgba(2,6,23,0.6);
+}
+.hero h2{font-size:1.6rem;color:#fff;margin-bottom:0.5rem}
+.hero p{color:var(--muted);max-width:70%}
+
+/* Articles grid */
+.cards{display:grid;grid-template-columns:1fr;gap:1rem}
+article{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.25rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 24px rgba(2,6,23,0.6)}
+article h2{color:var(--accent-1);margin-bottom:0.4rem}
+article p{color:var(--muted)}
+
+.site-footer{padding:1.25rem 0;margin-top:2.25rem;color:var(--muted);text-align:center}
+
+/* Responsive */
+@media (min-width:760px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .hero p{max-width:55%}
+}
+@media (max-width:760px){
+  .main-nav{display:none;position:absolute;right:1rem;top:64px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));flex-direction:column;padding:0.5rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+  .nav-toggle{display:block;margin-left:auto}
+  .hero p{max-width:100%}
+}
+
+/* small helpers */
+.muted{color:var(--muted)}
+.lead{font-size:1rem;color:var(--muted)}
+
